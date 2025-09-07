@@ -1,7 +1,7 @@
 ﻿using Inflow.Models;
 using Inflow.Repositories.BaseRepo;
 
-namespace Inflow.Repositories.CustomerRepository
+namespace Inflow.Repositories.CustomerRepo
 {
     public interface ICustomerRepository : IGenericRepository<Customer>
     {

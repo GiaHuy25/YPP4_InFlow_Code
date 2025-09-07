@@ -1,7 +1,7 @@
 using Inflow;
 using Inflow.Config;
 using Inflow.Repositories.AccountRepo;
-using Inflow.Repositories.CustomerRepository;
+using Inflow.Repositories.CustomerRepo;
 using Inflow.Services.AuthService;
 using Inflow.Services.CustomerService;
 using Inflow.Services.EmailService;

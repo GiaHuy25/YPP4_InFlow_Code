@@ -1,6 +1,6 @@
 ﻿using Inflow.Dtos;
 using Inflow.Models;
-using Inflow.Repositories.CustomerRepository;
+using Inflow.Repositories.CustomerRepo;
 
 namespace Inflow.Services.CustomerService
 {
