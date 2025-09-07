@@ -2,6 +2,7 @@
 using Inflow.Models;
 using Inflow.Repositories.AccountRepo;
 using Inflow.Services.EmailService;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
@@ -114,6 +115,32 @@ namespace Inflow.Services.AuthService
             return new AuthResponseDto { Success = true, Message = AuthMessageKey.ResetPasswordSuccess.GetMessage() };
         }
 
+        public async Task<IEnumerable<AccountDto>> GetAllAccountsAsync()
+        {
+            var accounts = await _repo.GetAll().ToListAsync();
+
+            return accounts.Select(a => new AccountDto
+            {
+                UserId = a.UserId,
+                FirstName = a.FirstName,
+                Email = a.Email,
+                Phone = a.Phone
+            });
+        }
+
+        public async Task<AccountDto?> GetAccountByEmailAsync(string email)
+        {
+            var account = await _repo.GetByEmailAsync(email);
+            if (account == null) return null;
+
+            return new AccountDto
+            {
+                UserId = account.UserId,
+                FirstName = account.FirstName,
+                Email = account.Email,
+                Phone = account.Phone
+            };
+        }
 
         // Utils
         private string HashPassword(string password)

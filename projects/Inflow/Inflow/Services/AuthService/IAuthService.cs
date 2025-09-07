@@ -9,5 +9,7 @@ namespace Inflow.Services.AuthService
         Task<AuthResponseDto> ForgotPasswordAsync(ForgotPasswordDto dto);
         Task<AuthResponseDto> ResetPasswordAsync(ResetPasswordDto dto);
         Task<AuthResponseDto> VerifyResetCodeAsync(VerifyResetCodeDto dto);
+        Task<AccountDto?> GetAccountByEmailAsync(string email);
+        Task<IEnumerable<AccountDto>> GetAllAccountsAsync();
     }
 }

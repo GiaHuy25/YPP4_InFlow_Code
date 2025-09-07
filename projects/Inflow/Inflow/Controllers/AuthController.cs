@@ -55,5 +55,21 @@ namespace InFlow.Controller
 
             return result.Success ? Ok(result) : BadRequest(result);
         }
+
+
+        [HttpGet("accounts")]
+        public async Task<IActionResult> GetAllAccounts()
+        {
+            var accounts = await _service.GetAllAccountsAsync();
+            return Ok(accounts);
+        }
+
+
+        [HttpGet("accounts/{email}")]
+        public async Task<IActionResult> GetAccountByEmail(string email)
+        {
+            var account = await _service.GetAccountByEmailAsync(email);
+            return account == null ? NotFound() : Ok(account);
+        }
     }
 }

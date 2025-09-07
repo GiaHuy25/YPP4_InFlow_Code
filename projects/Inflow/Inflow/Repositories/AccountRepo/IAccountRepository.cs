@@ -1,7 +1,8 @@
 ﻿using Inflow.Models;
+using Inflow.Repositories.BaseRepo;
 namespace Inflow.Repositories.AccountRepo
 {
-    public interface IAccountRepository
+    public interface IAccountRepository : IGenericRepository<Account>
     {
         Task<Account?> GetByEmailAsync(string email);
         Task<Account?> GetByPhoneAsync(string phone);
