@@ -11,5 +11,6 @@ namespace Inflow
         }
 
         public DbSet<Account> Account { get; set; }
+        public DbSet<Customer> Customer { get; set; }
     }
 }
