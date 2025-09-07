@@ -1,7 +1,9 @@
 using Inflow;
 using Inflow.Config;
 using Inflow.Repositories.AccountRepo;
+using Inflow.Repositories.CustomerRepository;
 using Inflow.Services.AuthService;
+using Inflow.Services.CustomerService;
 using Inflow.Services.EmailService;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization.Metadata;
@@ -24,6 +26,9 @@ internal class Program
         builder.Services.AddScoped<IEmailService, EmailService>();
         builder.Services.AddScoped<IAuthService, AuthService>();
         builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+        builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+        builder.Services.AddScoped<ICustomerService, CustomerService>();
+
 
         // ======================
         // Controllers & Swagger
