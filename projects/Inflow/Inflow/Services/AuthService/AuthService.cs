@@ -21,13 +21,23 @@ namespace Inflow.Services.AuthService
 
         public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
         {
-            return !IsValidEmail(dto.Email)
-                ? new AuthResponseDto { Success = false, Message = AuthMessageKey.InvalidEmail.GetMessage() }
-                : (await _repo.GetByEmailAsync(dto.Email)) != null
-                    ? new AuthResponseDto { Success = false, Message = AuthMessageKey.EmailExists.GetMessage() }
-                    : !IsValidPassword(dto.Password)
-                        ? new AuthResponseDto { Success = false, Message = AuthMessageKey.WeakPassword.GetMessage() }
-                        : await CreateAccountAsync(dto);
+            if (!IsValidEmail(dto.Email))
+            {
+                return new AuthResponseDto { Success = false, Message = AuthMessageKey.InvalidEmail.GetMessage() };
+            }
+
+            var existingUser = await _repo.GetByEmailAsync(dto.Email);
+            if (existingUser != null)
+            {
+                return new AuthResponseDto { Success = false, Message = AuthMessageKey.EmailExists.GetMessage() };
+            }
+
+            if (!IsValidPassword(dto.Password))
+            {
+                return new AuthResponseDto { Success = false, Message = AuthMessageKey.WeakPassword.GetMessage() };
+            }
+
+            return await CreateAccountAsync(dto);
         }
 
         private async Task<AuthResponseDto> CreateAccountAsync(RegisterDto dto)
