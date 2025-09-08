@@ -22,6 +22,7 @@ IF OBJECT_ID('[dbo].[Entity]', 'U') IS NOT NULL DROP TABLE [dbo].[Entity];
 Create table [dbo].[Account](
 	UserId INT PRIMARY KEY IDENTITY(1,1),
 	FirstName NVARCHAR(50) NOT NULL,
+	LastName NVARCHAR(50) NOT NULL,
 	Email NVARCHAR(50) UNIQUE NOT NULL,
 	Phone VARCHAR(15) UNIQUE NOT NULL,
 	PasswordHash NVARCHAR(255) NOT NULL,
@@ -77,7 +78,8 @@ CREATE TABLE [dbo].[Entity](
 	ObjectID INT PRIMARY KEY IDENTITY(1,1),
 	ObjectName NVARCHAR(255) NOT NULL,
 	Phone VARCHAR(20),
-	Email VARCHAR(255) UNIQUE,
+	Email VARCHAR(50) UNIQUE,
+	Fax VARCHAR(50) UNIQUE,
 	BillingAddressID INT NOT NULL REFERENCES Address(AddressID),
 	ShippingAddressID INT NOT NULL REFERENCES Address(AddressID),
 	CustomerTypeID INT NOT NULL REFERENCES ConfigKey(ConfigKeyID),

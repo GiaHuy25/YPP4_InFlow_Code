@@ -37,14 +37,14 @@ INSERT INTO [dbo].[Address] (PreSavedName, Street, City, StateProvince, Country,
 ('Home5', N'666 Tran Hung Dao', N'Quy Nhon', N'Binh Dinh', N'Vietnam', N'59000', 3, N'Rental property', 1, 1),
 ('Office5', N'777 Pham Van Dong', N'Vung Tau', N'Ba Ria Vung Tau', N'Vietnam', N'78000', 4, N'Sales office', 1, 1);
 
-INSERT INTO [dbo].[Entity] (ObjectName, Phone, Email, BillingAddressID, ShippingAddressID, CustomerTypeID, ObjectTypeID, TotalSpend, LastOrderDate, CreatedBy, UpdatedBy) VALUES
-(N'Nguyen Van A', '0901234567', 'nguyenvana@example.com', 1, 2, 5, 7, 500.50, '2025-09-01', 1, 1),
-(N'Tran Thi B', '0912345678', 'tranthib@example.com', 3, 4, 5, 7, 1200.75, '2025-08-15', 1, 1),
-(N'Le Van C', '0923456789', 'levanc@example.com', 5, 6, 6, 8, 3000.00, '2025-09-02', 1, 1),
-(N'Pham Thi D', '0934567890', 'phamthid@example.com', 7, 8, 6, 8, 450.25, '2025-08-20', 1, 1),
-(N'Hoang Van E', '0945678901', 'hoangvane@example.com', 9, 10, 5, 7, 750.00, '2025-09-03', 1, 1),
-(N'Nguyen Thi F', '0956789012', 'nguyenthif@example.com', 1, 2, 5, 7, 1800.90, '2025-08-10', 1, 1),
-(N'Tran Van G', '0967890123', 'tranvang@example.com', 3, 4, 6, 8, 2500.60, '2025-09-04', 1, 1),
-(N'Le Thi H', '0978901234', 'lethih@example.com', 5, 6, 5, 7, 600.30, '2025-08-25', 1, 1),
-(N'Pham Van I', '0989012345', 'phamvani@example.com', 7, 8, 6, 8, 900.80, '2025-09-05', 1, 1),
-(N'Hoang Thi K', '0990123456', 'hoangthik@example.com', 9, 10, 5, 7, 1500.45, '2025-08-30', 1, 1);
+INSERT INTO [dbo].[Entity] (ObjectName, Phone, Email, Fax, BillingAddressID, ShippingAddressID, CustomerTypeID, ObjectTypeID, TotalSpend, LastOrderDate, CreatedBy, UpdatedBy, IsActive) VALUES
+(N'Nguyen Van A', '0901234567', 'nguyenvana@example.com', '5551234567', 1, 2, 5, 7, 500.50, '2025-09-01', 1, 1, 1),
+(N'Tran Thi B', '0912345678', 'tranthib@example.com', '5551234568', 3, 4, 5, 7, 1200.75, '2025-08-15', 1, 1, 1),
+(N'Le Van C', '0923456789', 'levanc@example.com', '5551234569', 5, 6, 6, 8, 3000.00, '2025-09-02', 1, 1, 1),
+(N'Pham Thi D', '0934567890', 'phamthid@example.com', '5551234570', 7, 8, 6, 8, 450.25, '2025-08-20', 1, 1, 1),
+(N'Hoang Van E', '0945678901', 'hoangvane@example.com', '5551234571', 9, 10, 5, 7, 750.00, '2025-09-03', 1, 1, 1),
+(N'Nguyen Thi F', '0956789012', 'nguyenthif@example.com', '5551234572', 1, 2, 5, 7, 1800.90, '2025-08-10', 1, 1, 1),
+(N'Tran Van G', '0967890123', 'tranvang@example.com', '5551234573', 3, 4, 6, 8, 2500.60, '2025-09-04', 1, 1, 1),
+(N'Le Thi H', '0978901234', 'lethih@example.com', '5551234574', 5, 6, 5, 7, 600.30, '2025-08-25', 1, 1, 1),
+(N'Pham Van I', '0989012345', 'phamvani@example.com', '5551234575', 7, 8, 6, 8, 900.80, '2025-09-05', 1, 1, 1),
+(N'Hoang Thi K', '0990123456', 'hoangthik@example.com', '5551234576', 9, 10, 5, 7, 1500.45, '2025-08-30', 1, 1, 1);

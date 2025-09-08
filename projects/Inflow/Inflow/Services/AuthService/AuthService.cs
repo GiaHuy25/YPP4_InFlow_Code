@@ -46,6 +46,7 @@ namespace Inflow.Services.AuthService
             var account = new Account
             {
                 FirstName = dto.FirstName,
+                LastName = dto.LastName,
                 Email = dto.Email,
                 Phone = dto.Phone,
                 PasswordHash = HashPassword(dto.Password),
@@ -123,6 +124,7 @@ namespace Inflow.Services.AuthService
             {
                 UserId = a.UserId,
                 FirstName = a.FirstName,
+                LastName = a.LastName,
                 Email = a.Email,
                 Phone = a.Phone
             });
@@ -137,6 +139,7 @@ namespace Inflow.Services.AuthService
             {
                 UserId = account.UserId,
                 FirstName = account.FirstName,
+                LastName = account.LastName,
                 Email = account.Email,
                 Phone = account.Phone
             };

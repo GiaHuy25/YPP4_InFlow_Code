@@ -15,8 +15,11 @@ namespace Inflow.Models
         [MaxLength(20)]
         public string? Phone { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(50)]
         public string? Email { get; set; }
+
+        [MaxLength(50)]
+        public string? Fax { get; set; }
 
         public int BillingAddressID { get; set; }
         public int ShippingAddressID { get; set; }
