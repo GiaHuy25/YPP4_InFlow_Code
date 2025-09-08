@@ -17,5 +17,14 @@ namespace Inflow.Controllers
             var products = await _service.GetAllProductsAsync();
             return Ok(products);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var product = await _service.GetProductByIdAsync(id);
+            if (product == null)
+                return NotFound();
+
+            return Ok(product);
+        }
     }
 }

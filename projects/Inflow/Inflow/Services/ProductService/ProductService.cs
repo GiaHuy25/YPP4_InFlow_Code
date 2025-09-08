@@ -20,5 +20,18 @@ namespace Inflow.Services.ProductService
                 AvailableStock = p.AvailableStock
             });
         }
+        public async Task<ProductDto?> GetProductByIdAsync(int id)
+        {
+            var product = await _repo.GetByIdAsync(id);
+            if (product == null || !product.IsActive) return null;
+
+            return new ProductDto
+            {
+                ProductID = product.ProductID,
+                ProductName = product.ProductName,
+                UnitCost = product.UnitCost,
+                AvailableStock = product.AvailableStock
+            };
+        }
     }
 }
