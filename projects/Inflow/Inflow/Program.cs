@@ -2,10 +2,15 @@ using Inflow;
 using Inflow.Config;
 using Inflow.Repositories.AccountRepo;
 using Inflow.Repositories.CustomerRepo;
+using Inflow.Repositories.ProductRepo;
+using Inflow.Repositories.SaleOrderItemRepo;
 using Inflow.Services.AuthService;
 using Inflow.Services.CustomerService;
 using Inflow.Services.EmailService;
+using Inflow.Services.ProductService;
+using Inflow.Services.SaleOrderItemService;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization.Metadata;
 internal class Program
 {
@@ -23,12 +28,17 @@ internal class Program
         // Dependency Injection
         // ======================
         builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
-        builder.Services.AddScoped<IEmailService, EmailService>();
-        builder.Services.AddScoped<IAuthService, AuthService>();
+
         builder.Services.AddScoped<IAccountRepository, AccountRepository>();
         builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-        builder.Services.AddScoped<ICustomerService, CustomerService>();
+        builder.Services.AddScoped<IProductRepository, ProductRepository>();
+        builder.Services.AddScoped<ISaleOrderItemRepository, SaleOrderItemRepository>();
 
+        builder.Services.AddScoped<IEmailService, EmailService>();
+        builder.Services.AddScoped<IAuthService, AuthService>();
+        builder.Services.AddScoped<ICustomerService, CustomerService>();
+        builder.Services.AddScoped<IProductService, ProductService>();
+        builder.Services.AddScoped<ISaleOrderItemService, SaleOrderItemService>();
 
         // ======================
         // Controllers & Swagger
