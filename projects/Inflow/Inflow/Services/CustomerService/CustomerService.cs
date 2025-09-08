@@ -22,6 +22,7 @@ namespace Inflow.Services.CustomerService
                 ObjectName = c.ObjectName,
                 Phone = c.Phone,
                 Email = c.Email,
+                Fax = c.Fax,
                 TotalSpend = c.TotalSpend,
                 LastOrderDate = c.LastOrderDate
             });
@@ -38,6 +39,7 @@ namespace Inflow.Services.CustomerService
                 ObjectName = customer.ObjectName,
                 Phone = customer.Phone,
                 Email = customer.Email,
+                Fax = customer.Fax,
                 TotalSpend = customer.TotalSpend,
                 LastOrderDate = customer.LastOrderDate
             };
@@ -50,6 +52,7 @@ namespace Inflow.Services.CustomerService
                 ObjectName = dto.ObjectName,
                 Phone = dto.Phone,
                 Email = dto.Email,
+                Fax = dto.Fax,
                 BillingAddressID = dto.BillingAddressID,
                 ShippingAddressID = dto.ShippingAddressID,
                 CustomerTypeID = dto.CustomerTypeID,
@@ -69,6 +72,7 @@ namespace Inflow.Services.CustomerService
                 ObjectName = customer.ObjectName,
                 Phone = customer.Phone,
                 Email = customer.Email,
+                Fax = customer.Fax,
                 TotalSpend = customer.TotalSpend,
                 LastOrderDate = customer.LastOrderDate
             };
