@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Inflow.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/product")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _service;
