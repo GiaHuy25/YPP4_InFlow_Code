@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Net;
 
 namespace Inflow.Models
 {
@@ -25,14 +26,20 @@ namespace Inflow.Models
         public int ShippingAddressID { get; set; }
         public int CustomerTypeID { get; set; }
         public int ObjectTypeID { get; set; }
-
         public decimal TotalSpend { get; set; }
         public DateTime? LastOrderDate { get; set; }
-
+        public string? CompanyName { get; set; }
+        public string? Website { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public int CreatedBy { get; set; }
         public int UpdatedBy { get; set; }
-        public bool IsActive { get; set; } = true; 
+        public bool IsActive { get; set; } = true;
+
+        [ForeignKey(nameof(BillingAddressID))]
+        public Address? BillingAddress { get; set; }
+
+        [ForeignKey(nameof(ShippingAddressID))]
+        public Address? ShippingAddress { get; set; }
     }
 }

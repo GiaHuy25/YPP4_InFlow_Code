@@ -24,7 +24,11 @@ namespace Inflow.Services.CustomerService
                 Email = c.Email,
                 Fax = c.Fax,
                 TotalSpend = c.TotalSpend,
-                LastOrderDate = c.LastOrderDate
+                LastOrderDate = c.LastOrderDate,
+                ShippingAddress = c.ShippingAddress,
+                BillingAddress = c.BillingAddress,
+                CompanyName = c.CompanyName,
+                Website = c.Website
             });
         }
 
@@ -41,7 +45,15 @@ namespace Inflow.Services.CustomerService
                 Email = customer.Email,
                 Fax = customer.Fax,
                 TotalSpend = customer.TotalSpend,
-                LastOrderDate = customer.LastOrderDate
+                LastOrderDate = customer.LastOrderDate,
+                ShippingAddress = customer.ShippingAddress != null
+                    ? $"{customer.ShippingAddress.Street}, {customer.ShippingAddress.City}, {customer.ShippingAddress.StateProvince}, {customer.ShippingAddress.Country}, {customer.ShippingAddress.ZipPostalCode}"
+                    : null,
+                BillingAddress = customer.BillingAddress != null
+                    ? $"{customer.BillingAddress.Street}, {customer.BillingAddress.City}, {customer.BillingAddress.StateProvince}, {customer.BillingAddress.Country}, {customer.BillingAddress.ZipPostalCode}"
+                    : null,
+                CompanyName = customer.CompanyName,
+                Website = customer.Website
             };
         }
 
