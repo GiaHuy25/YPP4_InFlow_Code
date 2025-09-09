@@ -97,21 +97,23 @@ GO
 
 CREATE TABLE [dbo].[Entity](
 	ObjectID INT PRIMARY KEY IDENTITY(1,1),
-	ObjectName NVARCHAR(255) NOT NULL,
-	Phone VARCHAR(20),
-	Email VARCHAR(50) UNIQUE,
-	Fax VARCHAR(50) UNIQUE,
-	BillingAddressID INT NOT NULL REFERENCES Address(AddressID),
-	ShippingAddressID INT NOT NULL REFERENCES Address(AddressID),
-	CustomerTypeID INT NOT NULL REFERENCES ConfigKey(ConfigKeyID),
-	ObjectTypeID INT NOT NULL REFERENCES ConfigKey(ConfigKeyID),
-	TotalSpend DECIMAL(18,2) DEFAULT 0,
-	LastOrderDate DATETIME,
-	CreatedAt DATETIME DEFAULT GETDATE(),
-	UpdatedAt DATETIME DEFAULT GETDATE(),
-	CreatedBy INT NOT NULL,
-	UpdatedBy INT NOT NULL,
-	IsActive BIT DEFAULT 1
+    ObjectName NVARCHAR(255) NOT NULL,
+    Phone VARCHAR(20),
+    Email VARCHAR(50) UNIQUE,
+    Fax VARCHAR(50) UNIQUE,
+    BillingAddressID INT NOT NULL REFERENCES Address(AddressID),
+    ShippingAddressID INT NOT NULL REFERENCES Address(AddressID),
+    CustomerTypeID INT NOT NULL REFERENCES ConfigKey(ConfigKeyID),
+    ObjectTypeID INT NOT NULL REFERENCES ConfigKey(ConfigKeyID),
+    TotalSpend DECIMAL(18,2) DEFAULT 0,
+    LastOrderDate DATETIME,
+    CompanyName NVARCHAR(255) NULL,
+    Website NVARCHAR(255) NULL,
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    UpdatedAt DATETIME DEFAULT GETDATE(),
+    CreatedBy INT NOT NULL,
+    UpdatedBy INT NOT NULL,
+    IsActive BIT DEFAULT 1
 );
 GO
 
