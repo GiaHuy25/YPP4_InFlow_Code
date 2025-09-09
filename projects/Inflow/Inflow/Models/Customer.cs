@@ -33,6 +33,6 @@ namespace Inflow.Models
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public int CreatedBy { get; set; }
         public int UpdatedBy { get; set; }
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; } = true; 
     }
 }
