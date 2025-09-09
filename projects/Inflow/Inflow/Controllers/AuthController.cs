@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InFlow.Controller
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _service;
