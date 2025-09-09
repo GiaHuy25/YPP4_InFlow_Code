@@ -79,6 +79,13 @@ INSERT INTO [dbo].[MeasureUnit] (MeasureUnitName, CreatedBy, UpdatedBy, IsActive
 (N'Centimeter', 1, 1, 1),
 (N'Bottle', 1, 1, 1);
 
+INSERT INTO [dbo].[CustomEntityType] (EntityTypeName, CreatedBy, UpdatedBy, IsActive) VALUES
+(N'Product', 1, 1, 1),
+(N'Customer', 1, 1, 1),
+(N'SaleOrder', 1, 1, 1),
+(N'OrderRequest', 1, 1, 1),
+(N'SaleQuote', 1, 1, 1);
+
 -- 7. Insert into CustomField
 INSERT INTO [dbo].[CustomField] (FieldName, AliasName, DataType, CreatedBy, UpdatedBy, IsActive) VALUES
 (N'Color', N'Product Color', N'NVARCHAR(50)', 1, 1, 1),
@@ -145,17 +152,17 @@ INSERT INTO [dbo].[ProductPrice] (ProductID, PricingSchemeName, MarkupPercent, M
 (10, N'Standard', 30.00, NULL, 2600000.00, 'VND', 2000000.00, 1, 1, 1);
 
 -- 12. Insert into CustomFieldValue
-INSERT INTO [dbo].[CustomFieldValue] (CustomFieldID, ProductID, CustomValue, CreatedBy, UpdatedBy, IsActive) VALUES
+INSERT INTO [dbo].[CustomFieldValue] (CustomFieldID, CustomEntityTypeID, CustomValue, CreatedBy, UpdatedBy, IsActive) VALUES
 (1, 1, N'Black', 1, 1, 1),
-(2, 2, N'Cotton', 1, 1, 1),
-(3, 3, N'2 Years', 1, 1, 1),
+(2, 1, N'Cotton', 1, 1, 1),
+(3, 1, N'2 Years', 1, 1, 1),
 (4, 1, N'Samsung', 1, 1, 1),
-(5, 2, N'Medium', 1, 1, 1),
-(1, 6, N'Silver', 1, 1, 1),
-(2, 7, N'Polyester', 1, 1, 1),
-(3, 8, N'1 Year', 1, 1, 1),
-(8, 4, N'First Edition', 1, 1, 1),
-(9, 2, N'Breathable Fabric', 1, 1, 1);
+(5, 1, N'Medium', 1, 1, 1),
+(1, 1, N'Silver', 1, 1, 1),
+(2, 1, N'Polyester', 1, 1, 1),
+(3, 1, N'1 Year', 1, 1, 1),
+(8, 1, N'First Edition', 1, 1, 1),
+(9, 1, N'Breathable Fabric', 1, 1, 1);
 
 -- 13. Insert into ProductUOMConversion
 INSERT INTO [dbo].[ProductUOMConversion] (ProductID, StandardUOMID, FromValue, ToValue, ConversionType, CreatedBy, UpdatedBy, IsActive) VALUES
@@ -196,18 +203,6 @@ INSERT INTO [dbo].[ProductInventory] (ProductID, StockLocationID, MeasureUnitID,
 (9, 9, 3, 120, 9, 1, 1, 1),
 (10, 10, 1, 15, 9, 1, 1, 1);
 
--- 16. Insert into Account
-INSERT INTO [dbo].[Account] (FirstName, LastName, Email, Phone, PasswordHash, ResetCode, CreatedAt, UpdatedAt) VALUES
-(N'Van', N'Nguyen', 'van.nguyen1@example.com', '0901234001', 'hashed_password_1', NULL, GETDATE(), GETDATE()),
-(N'Thi', N'Tran', 'thi.tran@example.com', '0901234002', 'hashed_password_2', NULL, GETDATE(), GETDATE()),
-(N'Van', N'Le', 'van.le@example.com', '0901234003', 'hashed_password_3', NULL, GETDATE(), GETDATE()),
-(N'Thi', N'Pham', 'thi.pham@example.com', '0901234004', 'hashed_password_4', NULL, GETDATE(), GETDATE()),
-(N'Van', N'Hoang', 'van.hoang@example.com', '0901234005', 'hashed_password_5', NULL, GETDATE(), GETDATE()),
-(N'Thi', N'Nguyen', 'thi.nguyen@example.com', '0901234006', 'hashed_password_6', NULL, GETDATE(), GETDATE()),
-(N'Van', N'Tran', 'van.tran2@example.com', '0901234007', 'hashed_password_7', NULL, GETDATE(), GETDATE()),
-(N'Thi', N'Le', 'thi.le@example.com', '0901234008', 'hashed_password_8', NULL, GETDATE(), GETDATE()),
-(N'Van', N'Pham', 'van.pham2@example.com', '0901234009', 'hashed_password_9', NULL, GETDATE(), GETDATE()),
-(N'Thi', N'Hoang', 'thi.hoang@example.com', '0901234010', 'hashed_password_10', NULL, GETDATE(), GETDATE());
 
 -- 17. Insert into PaymentTerm
 INSERT INTO [dbo].[PaymentTerm] (PaymentTermName, DaysDue, CreatedBy, UpdatedBy, IsActive) VALUES

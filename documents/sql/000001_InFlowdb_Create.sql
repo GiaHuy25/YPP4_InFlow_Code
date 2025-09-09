@@ -37,6 +37,7 @@ IF OBJECT_ID('[dbo].[SaleOrderPick]', 'U') IS NOT NULL DROP TABLE [dbo].[SaleOrd
 IF OBJECT_ID('[dbo].[SaleOrderPickItem]', 'U') IS NOT NULL DROP TABLE [dbo].[SaleOrderPickItem];
 IF OBJECT_ID('[dbo].[SaleOrderShip]', 'U') IS NOT NULL DROP TABLE [dbo].[SaleOrderShip];
 IF OBJECT_ID('[dbo].[SaleOrderShipItem]', 'U') IS NOT NULL DROP TABLE [dbo].[SaleOrderShipItem];
+IF OBJECT_ID('[dbo].[CustomEntityType]', 'U') IS NOT NULL DROP TABLE [dbo].[CustomEntityType];
 
 
 Create table [dbo].[Account](
@@ -129,6 +130,17 @@ GO
 CREATE TABLE [dbo].[MeasureUnit](
 	MeasureUnitID INT PRIMARY KEY IDENTITY (1,1),     
 	MeasureUnitName NVARCHAR(100) NOT NULL,  
+	CreatedAt DATETIME DEFAULT GETDATE(),
+	UpdatedAt DATETIME DEFAULT GETDATE(),
+	CreatedBy INT NOT NULL,
+	UpdatedBy INT NOT NULL,
+	IsActive BIT DEFAULT 1
+);
+GO
+
+CREATE TABLE [dbo].[CustomEntityType](
+	CustomEntityTypeID INT PRIMARY KEY IDENTITY(1,1),
+	EntityTypeName NVARCHAR(100) NOT NULL UNIQUE,
 	CreatedAt DATETIME DEFAULT GETDATE(),
 	UpdatedAt DATETIME DEFAULT GETDATE(),
 	CreatedBy INT NOT NULL,
@@ -263,7 +275,7 @@ GO
 CREATE TABLE [dbo].[CustomFieldValue](
 	CustomFieldsValueID INT PRIMARY KEY IDENTITY(1,1),
 	CustomFieldID INT NOT NULL REFERENCES CustomField(CustomFieldID),
-	ProductID INT NOT NULL REFERENCES Products(ProductID),
+	CustomEntityTypeID INT NOT NULL REFERENCES CustomEntityType(CustomEntityTypeID),
 	CustomValue NVARCHAR(max) NOT NULL,
 	CreatedAt DATETIME DEFAULT GETDATE(),
 	UpdatedAt DATETIME DEFAULT GETDATE(),
@@ -320,14 +332,14 @@ CREATE TABLE [dbo].[ProductInventory](
 GO
 
 CREATE TABLE [dbo].[StockSubLocation](
-StockSubLocationID INT PRIMARY KEY IDENTITY(1,1),
-StockLocationID INT NOT NULL REFERENCES StockLocation(StockLocationID),
-SubLocation NVARCHAR(50) NOT NULL,
-CreatedAt DATETIME DEFAULT GETDATE(),
-UpdatedAt DATETIME DEFAULT GETDATE(),
-CreatedBy INT NOT NULL,
-UpdatedBy INT NOT NULL,
-IsActive BIT DEFAULT 1
+	StockSubLocationID INT PRIMARY KEY IDENTITY(1,1),
+	StockLocationID INT NOT NULL REFERENCES StockLocation(StockLocationID),
+	SubLocation NVARCHAR(50) NOT NULL,
+	CreatedAt DATETIME DEFAULT GETDATE(),
+	UpdatedAt DATETIME DEFAULT GETDATE(),
+	CreatedBy INT NOT NULL,
+	UpdatedBy INT NOT NULL,
+	IsActive BIT DEFAULT 1
 );
 GO
 
