@@ -45,7 +45,11 @@ namespace Inflow.Models
         public int UpdatedBy { get; set; }
 
         public bool IsActive { get; set; } = true;
+
+        [ForeignKey(nameof(ProductID))]
         public Product Product { get; set; } = null!;
+
+        [ForeignKey(nameof(SaleOrderID))]
         public SalesOrder SaleOrder { get; set; } = null!;
     }
 }
