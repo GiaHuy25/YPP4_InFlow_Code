@@ -80,5 +80,32 @@ namespace Inflow.Models
         public int UpdatedBy { get; set; }
 
         public bool IsActive { get; set; } = true;
+
+        [ForeignKey(nameof(CustomerID))]
+        public Customer? Customer { get; set; }
+
+        [ForeignKey(nameof(OrderRequestID))]
+        public OrderRequest? OrderRequest { get; set; }
+
+        [ForeignKey(nameof(StockLocationID))]
+        public StockLocation? StockLocation { get; set; }
+
+        [ForeignKey(nameof(SalePersonID))]
+        public Account? SalePerson { get; set; }
+
+        [ForeignKey(nameof(CurrencyID))]
+        public Currency? Currency { get; set; }
+
+        [ForeignKey(nameof(PaymentTermID))]
+        public PaymentTerm? PaymentTerm { get; set; }
+
+        [ForeignKey(nameof(BillingAddressID))]
+        public Address? BillingAddress { get; set; }
+
+        [ForeignKey(nameof(ShippingAddressID))]
+        public Address? ShippingAddress { get; set; }
+
+        [ForeignKey(nameof(StatusID))]
+        public ConfigKey? Status { get; set; }
     }
 }

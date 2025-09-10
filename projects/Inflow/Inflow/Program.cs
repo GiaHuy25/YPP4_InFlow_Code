@@ -4,13 +4,14 @@ using Inflow.Repositories.AccountRepo;
 using Inflow.Repositories.CustomerRepo;
 using Inflow.Repositories.ProductRepo;
 using Inflow.Repositories.SaleOrderItemRepo;
+using Inflow.Repositories.SalesOrderRepo;
 using Inflow.Services.AuthService;
 using Inflow.Services.CustomerService;
 using Inflow.Services.EmailService;
 using Inflow.Services.ProductService;
 using Inflow.Services.SaleOrderItemService;
+using Inflow.Services.SalesOrderService;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization.Metadata;
 internal class Program
 {
@@ -33,12 +34,14 @@ internal class Program
         builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
         builder.Services.AddScoped<IProductRepository, ProductRepository>();
         builder.Services.AddScoped<ISaleOrderItemRepository, SaleOrderItemRepository>();
+        builder.Services.AddScoped<ISalesOrderRepository, SalesOrderRepository>();
 
         builder.Services.AddScoped<IEmailService, EmailService>();
         builder.Services.AddScoped<IAuthService, AuthService>();
         builder.Services.AddScoped<ICustomerService, CustomerService>();
         builder.Services.AddScoped<IProductService, ProductService>();
         builder.Services.AddScoped<ISaleOrderItemService, SaleOrderItemService>();
+        builder.Services.AddScoped<ISalesOrderService, SalesOrderService>();
 
         // ======================
         // Controllers & Swagger
