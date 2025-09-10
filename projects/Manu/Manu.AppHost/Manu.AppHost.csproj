@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Inflow\Manu.csproj" />
+    <ProjectReference Include="..\Manu\Manu.csproj" />
   </ItemGroup>
 
 </Project>
