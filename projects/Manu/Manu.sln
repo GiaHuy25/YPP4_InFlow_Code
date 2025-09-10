@@ -2,13 +2,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manu.AppHost", "Inflow.AppHost\Manu.AppHost.csproj", "{6447EE2D-D667-46E7-B8DD-A0465AF82006}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manu.AppHost", "Manu.AppHost\Manu.AppHost.csproj", "{6447EE2D-D667-46E7-B8DD-A0465AF82006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manu.ServiceDefaults", "Inflow.ServiceDefaults\Manu.ServiceDefaults.csproj", "{2AB4DF5D-9B1A-6462-8644-02E307F6A7A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manu.ServiceDefaults", "Manu.ServiceDefaults\Manu.ServiceDefaults.csproj", "{2AB4DF5D-9B1A-6462-8644-02E307F6A7A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manu", "Inflow\Manu.csproj", "{05D5F9AD-6860-E85B-11DC-D71AFA2581D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manu", "Manu\Manu.csproj", "{05D5F9AD-6860-E85B-11DC-D71AFA2581D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManuTest", "InflowTest\ManuTest.csproj", "{146089A7-5CB4-4236-9540-57314E9DC86E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManuTest", "ManuTest\ManuTest.csproj", "{146089A7-5CB4-4236-9540-57314E9DC86E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
