@@ -79,7 +79,7 @@ GO
 
 CREATE TABLE [dbo].[Address](
 	AddressID INT PRIMARY KEY IDENTITY(1,1),
-	PreSavedName NVARCHAR(255),
+	AddressName NVARCHAR(255),
 	Street NVARCHAR(255) NOT NULL,     
 	City NVARCHAR(100) NOT NULL,           
 	StateProvince NVARCHAR(100),      
@@ -105,10 +105,9 @@ CREATE TABLE [dbo].[Entity](
     ShippingAddressID INT NOT NULL REFERENCES Address(AddressID),
     CustomerTypeID INT NOT NULL REFERENCES ConfigKey(ConfigKeyID),
     ObjectTypeID INT NOT NULL REFERENCES ConfigKey(ConfigKeyID),
-    TotalSpend DECIMAL(18,2) DEFAULT 0,
     LastOrderDate DATETIME,
     CompanyName NVARCHAR(255) NULL,
-    Website NVARCHAR(255) NULL,
+    Website NVARCHAR(255) NULL,	
     CreatedAt DATETIME DEFAULT GETDATE(),
     UpdatedAt DATETIME DEFAULT GETDATE(),
     CreatedBy INT NOT NULL,
